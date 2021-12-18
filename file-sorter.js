@@ -1,6 +1,8 @@
 const fs = require("fs")
 
 let arr = []; 
+
+//Reads all the files under current directory 
 fs.readdir(__dirname , (err,files)=>{
     if(err){
         console.log("hey");
@@ -9,6 +11,7 @@ fs.readdir(__dirname , (err,files)=>{
     else{
         files.forEach(file => {
             if(file != "file-sorter.js") { 
+                //reads the content and adds into array 
                 fs.readFile(file,'utf-8',(err,data)=>{
                     if(err)console.log(err);
                     else{
@@ -31,6 +34,7 @@ fs.readdir(__dirname , (err,files)=>{
         })
     }
 })
+
 
 let wait = setInterval(endFun,2000);
 function endFun(){
